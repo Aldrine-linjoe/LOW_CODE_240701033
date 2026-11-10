@@ -1,0 +1,3646 @@
+/*
+ * Author       : aldrinelinjoe.s.2024.cse1857
+ * Generated on : 10-Nov-2026 09:28:02
+ * Version      : 1.0
+ */
+ application "Hotel Room Booking Automation Suite"
+ {
+ 	date format = "dd-MMM-yyyy"
+ 	time zone = "America/Los_Angeles"
+ 	time format = "24-hr"
+
+ 	forms
+	{
+		form Booking_Approvals
+		{
+			displayname = "Booking Approvals"
+			success message = "Approvals Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			booking
+			(
+				type = list	
+				displayname = "Booking"
+				values  = Room_Booking_Form.ID
+    			displayformat = [booking_id]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+				height = 13px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			approval_type
+			(
+				type = radiobuttons
+				displayname = "Approval Type"
+				values = {"Complimentary Upgrade","Special Discount"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			requested_by
+			(
+    			type = text
+				displayname = "Requested By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			request_date
+			(
+    			type = datetime
+				displayname = "Request Date"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			approval_status
+			(
+				type = picklist
+				displayname = "Approval Status"
+				values = {"Approved","Rejected","Pending"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			approved_by
+			(
+    			type = text
+				displayname = "Approved By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			approval_date
+			(
+    			type = datetime
+				displayname = "Approval Date"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			approval_comments
+			(
+    			type = textarea
+				displayname = "Approval Comments"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			fallback_approver
+			(
+    			type = text
+				displayname = "Fallback Approver"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Feedback_Surveys
+		{
+			displayname = "Feedback Surveys"
+			success message = "Feedback Surveys Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			booking
+			(
+				type = list	
+				displayname = "Booking"
+				values  = Room_Booking_Form.ID
+    			displayformat = [booking_id]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+				height = 13px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			survey_link
+			(
+    			type = url
+				displayname = "Survey Link"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			sent_date
+			(
+    			type = datetime
+				displayname = "Sent Date"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			response_status
+			(
+				type = picklist
+				displayname = "Response Status"
+				values = {"Not Responded","Responded","Sent"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			feedback_score
+			(
+				type = number
+				displayname = "Feedback Score"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			feedback_comments
+			(
+    			type = textarea
+				displayname = "Feedback Comments"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			batch_id
+			(
+    			type = text
+				displayname = "Batch ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Invoice_Records
+		{
+			displayname = "Invoice Records"
+			success message = "Invoice Records Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			booking
+			(
+				type = list	
+				displayname = "Booking"
+				values  = Room_Booking_Form.ID
+    			displayformat = [booking_id]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+				height = 13px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			invoice_pdf_url
+			(
+    			type = url
+				displayname = "Invoice PDF URL"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			generated_date
+			(
+    			type = datetime
+				displayname = "Generated Date"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			generation_method
+			(
+				type = picklist
+				displayname = "Generation Method"
+				values = {"Manual Resend","Auto Checkout","Monthly Reconcile"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			total_charges
+			(
+				displayname = "Total Charges"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			tax_amount
+			(
+				displayname = "Tax Amount"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			addons_total
+			(
+				displayname = "Addons Total"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			final_payable
+			(
+				displayname = "Final Payable"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Payment_Transactions
+		{
+			displayname = "Payment Transactions"
+			success message = "Payment Transactions Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			booking
+			(
+				type = list	
+				displayname = "Booking"
+				values  = Room_Booking_Form.ID
+    			displayformat = [booking_id]
+				allow new entries
+				[
+					displayname = "Add New"
+				]
+				sortorder = ascending
+				height = 13px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			payment_link
+			(
+    			type = url
+				displayname = "Payment Link"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			amount
+			(
+				displayname = "Amount"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			gateway_status
+			(
+				type = picklist
+				displayname = "Gateway Status"
+				values = {"Initiated","Failed","Timeout","Success"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			transaction_reference
+			(
+    			type = text
+				displayname = "Transaction Reference"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			retry_count
+			(
+				type = number
+				displayname = "Retry Count"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			payment_date
+			(
+    			type = datetime
+				displayname = "Payment Date"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			error_log
+			(
+    			type = textarea
+				displayname = "Error Log"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+		form Room_Booking_Form
+		{
+			displayname = "Room Booking Form"
+			success message = "Data Added Successfully!"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			booking_id
+			(
+    			type = autonumber
+				displayname = "Booking ID"
+				start index = 1
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			guest_name
+			(
+    			type = name
+				displayname = "Guest Name"
+     			prefix
+     			(
+	     			 type = prefix
+	     			 displayname ="Prefix"
+	     			 visibility = false
+	     			 value = {"Mr.","Mrs.","Ms."}
+     			) 
+     			first_name
+     			(
+	     			 type = first_name
+	     			 displayname ="First Name"
+     			) 
+     			last_name
+     			(
+	     			 type = last_name
+	     			 displayname ="Last Name"
+	     			 visibility = false
+     			) 
+     			suffix
+     			(
+	     			 type = suffix
+	     			 displayname ="Suffix"
+	     			 visibility = false
+     			) 
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			guest_email
+			(
+    			type = email
+				displayname = "Guest Email"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			guest_phone
+			(
+    			type = phonenumber
+				displayname = "Guest Phone"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			check_in_date
+			(
+    			type = date
+				displayname = "Check In Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			check_out_date
+			(
+    			type = date
+				displayname = "Check Out Date"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			room_type
+			(
+				type = picklist
+				displayname = "Room Type"
+				values = {"Suite","Single","Deluxe","Double","Presidential"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			room_number
+			(
+				type = number
+				displayname = "Room Number"
+				maxchar = 19
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			tariff
+			(
+				displayname = "Room Tariff"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			discount_percentage
+			(
+    			type = percentage
+				displayname = "Discount Percentage"
+				maxchar = 16
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			total_amount_payable
+			(
+				displayname = "Total Amount Payable"
+				type = USD
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			advance_payment_status
+			(
+				type = picklist
+				displayname = "Advance Payment Status"
+				values = {"Failed","Paid","Pending"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			transaction_reference
+			(
+    			type = text
+				displayname = "Transaction Reference"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			upgrade_requested
+			(
+    			type = checkbox
+				displayname = "Upgrade Requested"
+				initial value = false
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			special_discount_requested
+			(
+    			type = checkbox
+				displayname = "Special Discount Requested"
+				initial value = false
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			status
+			(
+				type = picklist
+				displayname = "Status"
+				values = {"Enquiry","Checked-In","Checked-Out","Confirmed"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			check_in_comment
+			(
+    			type = textarea
+				displayname = "Check In Comment"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			check_out_comment
+			(
+    			type = textarea
+				displayname = "Check Out Comment"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			created_by
+			(
+    			type = text
+				displayname = "Created By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			created_time
+			(
+    			type = datetime
+				displayname = "Created Time"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			updated_by
+			(
+    			type = text
+				displayname = "Updated By"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			updated_time
+			(
+    			type = datetime
+				displayname = "Updated Time"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+			blueprint components
+			{
+				stages = {"Booking Initiated","Pending Approval","Booking Cancelled","Approved","Rejected","Pending Payment","Payment Confirmed","Check-In Pending","Guest Checked In","Guest Checked Out","Upgrade Requested","Upgrade Approved","Upgrade Rejected","Final Settlement","Booking Closed"}
+			}
+		}
+		form Workflow_Logs
+		{
+			displayname = "Workflow Logs"
+			success message = "Workflow Logs Added Successfully"
+			Section
+			(
+				type = section
+	 			row = 1
+	 			column = 0   
+				width = medium
+			)
+			workflow_name
+			(
+    			type = text
+				displayname = "Workflow Name"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			record_id
+			(
+    			type = text
+				displayname = "Record ID"
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			execution_time
+			(
+    			type = datetime
+				displayname = "Execution Time"
+				timedisplayoptions = "hh:mm:ss"
+				alloweddays = 0,1,2,3,4,5,6
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			status
+			(
+				type = picklist
+				displayname = "Status"
+				values = {"Failed","Skipped","Success"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			error_message
+			(
+    			type = textarea
+				displayname = "Error Message"
+				height = 100px
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+			trigger_type
+			(
+				type = picklist
+				displayname = "Trigger Type"
+				values = {"Function","Payment","Report","Blueprint","Form Submit","Schedule","Edit","Approval"}
+				others option = true
+	 			row = 1
+	 			column = 1   
+				width = medium
+			)
+	
+			actions
+			{
+				on add
+				{
+					submit
+					(
+   						type = submit
+   						displayname = "Submit"
+					)
+					reset
+					(
+   						type = reset
+   						displayname = "Reset"
+					)
+				}
+				on edit
+				{
+					update
+					(
+   						type = submit
+   						displayname = "Update"
+					)
+					cancel
+					(
+   						type = cancel
+   						displayname = "Cancel"
+					)
+				}
+			}
+		}
+	}
+	reports
+	{
+		list Booking_Approvals_Report
+		{
+			displayName = "All Approvals"
+			show all rows from Booking_Approvals    
+			(
+				booking as "Booking"
+				approval_type as "Approval Type"
+				requested_by as "Requested By"
+				request_date as "Request Date"
+				approval_status as "Approval Status"
+				approved_by as "Approved By"
+				approval_date as "Approval Date"
+				approval_comments as "Approval Comments"
+				fallback_approver as "Fallback Approver"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (approval_status == "Approved")
+				fields = [approval_status]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (approval_status == "Pending")
+				fields = [approval_status]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (approval_status == "Rejected")
+				fields = [approval_status]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban Booking_Approvals_by_approval_status
+		{
+			displayName = "Approval Statuses"
+			show all rows from Booking_Approvals    
+			(
+				booking as "Booking"
+				approval_type as "Approval Type"
+				requested_by as "Requested By"
+				request_date as "Request Date"
+				approval_status as "Approval Status"
+				approved_by as "Approved By"
+				approval_date as "Approval Date"
+				approval_comments as "Approval Comments"
+				fallback_approver as "Fallback Approver"
+			)
+			options
+			(
+	 			display field = approval_status
+	 		)
+		}
+		list Feedback_Surveys_Report
+		{
+			displayName = "All Feedback Surveys"
+			show all rows from Feedback_Surveys    
+			(
+				booking as "Booking"
+				survey_link as "Survey Link"
+				sent_date as "Sent Date"
+				response_status as "Response Status"
+				feedback_score as "Feedback Score"
+				feedback_comments as "Feedback Comments"
+				batch_id as "Batch ID"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (response_status == "Responded")
+				fields = [response_status]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (response_status == "Sent")
+				fields = [response_status]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+			)
+		}
+		kanban Feedback_Surveys_by_response_status
+		{
+			displayName = "Response Statuses"
+			show all rows from Feedback_Surveys    
+			(
+				booking as "Booking"
+				survey_link as "Survey Link"
+				sent_date as "Sent Date"
+				response_status as "Response Status"
+				feedback_score as "Feedback Score"
+				feedback_comments as "Feedback Comments"
+				batch_id as "Batch ID"
+			)
+			options
+			(
+	 			display field = response_status
+	 		)
+		}
+		list Payment_Transactions_Report
+		{
+			displayName = "All Payment Transactions"
+			show all rows from Payment_Transactions    
+			(
+				booking as "Booking"
+				payment_link as "Payment Link"
+				amount as "Amount"
+				(
+					display = total,average,min,max	
+				)
+				gateway_status as "Gateway Status"
+				transaction_reference as "Transaction Reference"
+				retry_count as "Retry Count"
+				payment_date as "Payment Date"
+				error_log as "Error Log"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (gateway_status == "Failed")
+				fields = [gateway_status]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (gateway_status == "Initiated")
+				fields = [gateway_status]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (gateway_status == "Success")
+				fields = [gateway_status]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban Payment_Transactions_by_gateway_status
+		{
+			displayName = "Gateway Statuses"
+			show all rows from Payment_Transactions    
+			(
+				booking as "Booking"
+				payment_link as "Payment Link"
+				amount as "Amount"
+				(
+					display = total,average,min,max	
+				)
+				gateway_status as "Gateway Status"
+				transaction_reference as "Transaction Reference"
+				retry_count as "Retry Count"
+				payment_date as "Payment Date"
+				error_log as "Error Log"
+			)
+			options
+			(
+	 			display field = gateway_status
+	 		)
+		}
+		list Room_Booking_Form_Report
+		{
+			displayName = "Room Booking Form Report"
+			show all rows from Room_Booking_Form    
+			(
+				booking_id as "Booking ID"
+				guest_name  as "Guest Name"
+				guest_email as "Guest Email"
+				guest_phone as "Guest Phone"
+				check_in_date as "Check In Date"
+				check_out_date as "Check Out Date"
+				room_type as "Room Type"
+				room_number as "Room Number"
+				tariff as "Room Tariff"
+				(
+					display = total,average,min,max	
+				)
+				discount_percentage as "Discount Percentage"
+				(
+					display = total,average,min,max	
+				)
+				total_amount_payable as "Total Amount Payable"
+				(
+					display = total,average,min,max	
+				)
+				advance_payment_status as "Advance Payment Status"
+				transaction_reference as "Transaction Reference"
+				upgrade_requested as "Upgrade Requested"
+				special_discount_requested as "Special Discount Requested"
+				status as "Status"
+				check_in_comment as "Check In Comment"
+				check_out_comment as "Check Out Comment"
+				created_by as "Created By"
+				created_time as "Created Time"
+				updated_by as "Updated By"
+				updated_time as "Updated Time"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (room_type == "Double")
+				fields = [room_type]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (room_type == "Presidential")
+				fields = [room_type]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (room_type == "Single")
+				fields = [room_type]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+				"New Formatting4"
+				{
+				condition = (room_type == "Suite")
+				fields = [room_type]
+				format = "color:#ffffff;background-color:#3598db;"
+				}
+			)
+		}
+		kanban Room_Booking_Form_by_room_type
+		{
+			displayName = "Room Types"
+			show all rows from Room_Booking_Form    
+			(
+				booking_id as "Booking ID"
+				guest_name  as "Guest Name"
+				guest_email as "Guest Email"
+				guest_phone as "Guest Phone"
+				check_in_date as "Check In Date"
+				check_out_date as "Check Out Date"
+				room_type as "Room Type"
+				room_number as "Room Number"
+				tariff as "Room Tariff"
+				(
+					display = total,average,min,max	
+				)
+				discount_percentage as "Discount Percentage"
+				(
+					display = total,average,min,max	
+				)
+				total_amount_payable as "Total Amount Payable"
+				(
+					display = total,average,min,max	
+				)
+				advance_payment_status as "Advance Payment Status"
+				transaction_reference as "Transaction Reference"
+				upgrade_requested as "Upgrade Requested"
+				special_discount_requested as "Special Discount Requested"
+				status as "Status"
+				check_in_comment as "Check In Comment"
+				check_out_comment as "Check Out Comment"
+				created_by as "Created By"
+				created_time as "Created Time"
+				updated_by as "Updated By"
+				updated_time as "Updated Time"
+			)
+			options
+			(
+	 			display field = room_type
+	 		)
+		}
+		list Invoice_Records_Report
+		{
+			displayName = "All Invoice Records"
+			show all rows from Invoice_Records    
+			(
+				booking as "Booking"
+				invoice_pdf_url as "Invoice PDF URL"
+				generated_date as "Generated Date"
+				generation_method as "Generation Method"
+				total_charges as "Total Charges"
+				(
+					display = total,average,min,max	
+				)
+				tax_amount as "Tax Amount"
+				(
+					display = total,average,min,max	
+				)
+				addons_total as "Addons Total"
+				(
+					display = total,average,min,max	
+				)
+				final_payable as "Final Payable"
+				(
+					display = total,average,min,max	
+				)
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (generation_method == "Auto Checkout")
+				fields = [generation_method]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (generation_method == "Manual Resend")
+				fields = [generation_method]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (generation_method == "Monthly Reconcile")
+				fields = [generation_method]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban Invoice_Records_by_generation_method
+		{
+			displayName = "Generation Methods"
+			show all rows from Invoice_Records    
+			(
+				booking as "Booking"
+				invoice_pdf_url as "Invoice PDF URL"
+				generated_date as "Generated Date"
+				generation_method as "Generation Method"
+				total_charges as "Total Charges"
+				(
+					display = total,average,min,max	
+				)
+				tax_amount as "Tax Amount"
+				(
+					display = total,average,min,max	
+				)
+				addons_total as "Addons Total"
+				(
+					display = total,average,min,max	
+				)
+				final_payable as "Final Payable"
+				(
+					display = total,average,min,max	
+				)
+			)
+			options
+			(
+	 			display field = generation_method
+	 		)
+		}
+		list Workflow_Logs_Report
+		{
+			displayName = "All Workflow Logs"
+			show all rows from Workflow_Logs    
+			(
+				workflow_name as "Workflow Name"
+				record_id as "Record ID"
+				execution_time as "Execution Time"
+				status as "Status"
+				error_message as "Error Message"
+				trigger_type as "Trigger Type"
+			)
+			conditional formatting
+			(
+				"New Formatting1"
+				{
+				condition = (status == "Failed")
+				fields = [status]
+				format = "color:#ffffff;background-color:#765f89;"
+				}
+				"New Formatting2"
+				{
+				condition = (status == "Skipped")
+				fields = [status]
+				format = "color:#000000;background-color:#1bbc9b;"
+				}
+				"New Formatting3"
+				{
+				condition = (status == "Success")
+				fields = [status]
+				format = "color:#ffffff;background-color:#e84c3d;"
+				}
+			)
+		}
+		kanban Workflow_Logs_by_trigger_type
+		{
+			displayName = "Trigger Types"
+			show all rows from Workflow_Logs    
+			(
+				workflow_name as "Workflow Name"
+				record_id as "Record ID"
+				execution_time as "Execution Time"
+				status as "Status"
+				error_message as "Error Message"
+				trigger_type as "Trigger Type"
+			)
+			options
+			(
+	 			display field = trigger_type
+	 		)
+		}
+	}
+	pages
+	{
+		page DashBoard
+		{
+			displayname = "Dashboard"
+			Content="<zml    \t\t\n\t\t\n\t\t\n\t\t\n\t\t\n>\n\t<layout>\n\t<row>\n\t<column\n   \t\t width='28%'\n   \t>\n\t<panel elementName='Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'business-percentage-39'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Payment_Transactions.amount.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Total Amounts'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='25%'\n   \t>\n\t<panel elementName='Panel 2'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'business-calculator'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Room_Booking_Form.total_amount_payable.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Total Amount Payable'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='24%'\n   \t>\n\t<panel elementName='Panel 3'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'media-1-volume-up'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Room_Booking_Form.tariff.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Total Room Tariffs'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='23%'\n   \t>\n\t<panel elementName='Panel 4'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '20px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = '#FFFFFF'\n\tbgColor = 'theme'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'business-percentage-39'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\tdisplayType = 'actual'\n\tdecimalPlaces = '2'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'thisapp.Invoice_Records.addons_total.sum'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Total Addons Total'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='40%'\n   \t>\n\t<chart \n\telementName='Chart 1'\n\n\t\n\ttitle = 'Created By by Room Tariff'\n\t\n\ttype = 'Stacked Column'\n\txtitle = 'Created By'\n\tytitle = 'Room Tariff'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'center.top'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Room_Booking_Form'\n\txfield = 'created_by'\n\tyfields = 'sum:tariff'\n\tgroupBy = 'updated_by'\n\t\tDelugeCriteria = 'created_by is not null &amp;&amp; created_by != &quot;&quot;'\n/>\n\n</column><column\n   \t\t width='35%'\n   \t>\n\t<panel elementName='Grouped_Panel 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='50px'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '20px' \n\tcolor = '#000000'\n\tsize = '16px'\n\ttype = 'Text'\n\n\n\n\n\n\n\n\t  value = 'Approval Status'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n    borderColor = '#444444'\n    borderWidth = '0px'\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '2px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'design-todo'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'approval_status == &quot;Approved&quot;'\n\t  value = 'thisapp.Booking_Approvals.approval_status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Approved'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '17px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '17px'\n\tpaddingBottom = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'design-todo'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'approval_status == &quot;Rejected&quot;'\n\t  value = 'thisapp.Booking_Approvals.approval_status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Rejected'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpadding = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n    borderColor = '#444444'\n    borderWidth = '0px'\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n    \tcornerRadius = '2px'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'ui-2-hourglass'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t\tcriteria = 'approval_status == &quot;Pending&quot;'\n\t  value = 'thisapp.Booking_Approvals.approval_status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Pending'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc><pc \n\t\tpaddingTop = '17px'\n\tpaddingLeft = '0px'\n\tpaddingRight = '17px'\n\tpaddingBottom = '17px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '50%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n\t\tvAlign = 'middle'\n>\n\t<image  \n\t\tmarginLeft = '0px'\n\tmarginRight = '7px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '50px'\n\theight = '50px'\n\ttype = 'icon'\n\tvalue = 'travel-world'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmargin = '0px'\n\tcolor = 'theme'\n\tsize = '20px'\n\tbold = 'true' \n\ttype = 'Form Data'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\tdisplayType = 'actual'\n\tthousandsSeperator = 'LOCALE'\n\tdecimalSeperator = 'DOT'\n\tnumberScale = 'none'\n\n\n\n\n\t  value = 'thisapp.Booking_Approvals.approval_status.count'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '0px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '3px'\n\tcolor = '#44404C'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Total'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column><column\n   \t\t width='25%'\n   \t>\n\t<panel elementName='Panel_Button 1'\n \n >\n\t<pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n>\n\t<pr \n\t\t\twidth='fill'\n\t\theight='50px'\n>\n\t<pc \n\t\tpadding = '0px'\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t<text \n\n\tmarginLeft = '20px'\n\tmarginRight = '20px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tcolor = '#2D2D2D'\n\tsize = '16px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\n\n\n\n\n\n\t  value = 'Quick Links'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t\t\twidth='fill'\n\t\theight='fill'\n>\n\t<pc \n\t\tpaddingTop = '0px'\n\tpaddingLeft = '10px'\n\tpaddingRight = '10px'\n\tpaddingBottom = '10px'\n\tbgColor = '#FFFFFF'\n\n\t\twidth = '100%'\n\t\thAlign = 'left'\n\t\tvAlign = 'middle'\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\tpadding = '5px'\n\n\t\thAlign = 'left'\n>\n\t<pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'Booking_Approvals'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Booking Approvals'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\tpadding = '8px'\n\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'Feedback_Surveys'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Feedback Surveys'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\tpadding = '8px'\n\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'Payment_Transactions'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Payment Transactions'\n>\n</text>\n\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\tpadding = '8px'\n\n>\n\t<pr \n\t\t\twidth='auto'\n\t\theight='auto'\n>\n\t<pc \n\t\n>\n\t\n</pc>\n</pr>\n</pc>\n</pr><pr \n\t>\n\t<pc \n\t\n>\n\t<image  \n\t\tmarginLeft = '5px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\n\tcolor = 'theme'\n\tbgColor = '#F1F2F4'\n\twidth = '40px'\n\theight = '40px'\n\ttype = 'icon'\n\tvalue = 'ui-2-square-add-08'\n\tsize = '16px'\n\tcornerRadius = '10px'\n\ticonType = 'outline'\n/>\n</pc><pc \n\t\n\t\thAlign = 'left'\n>\n\t<text \n    action = 'OpenForm'\n\t\tcomponentLinkName = 'Room_Booking_Form'\n\t\ttarget = 'new-window'\n\n\tmarginLeft = '12px'\n\tmarginRight = '0px' \n\tmarginBottom = '0px'\n\tmarginTop = '0px'\n\tpadding = '0px'\n\tcolor = 'theme'\n\tsize = '15px'\n\ttype = 'Text'\n\n\tbgColor = 'transparent'\n        bgColorType = 'noFill'\n\tcornerRadius = '2px'\n\n\n\n\n\n    borderColor = '#5051F9'\n    borderWidth = '0px'\n\n\t  value = 'Add New Room Booking Form'\n>\n</text>\n\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</pc>\n</pr>\n</panel>\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<chart \n\telementName='Chart 2'\n\n\t\n\ttitle = 'Total Charges by Tax Amount'\n\t\n\ttype = 'Scatter'\n\txtitle = 'Total Charges'\n\tytitle = 'Tax Amount'\n\tbgColor = '#FFFFFF'\n\ttheme = 'theme'\n\tlegendPos = 'none'\n\theightType = 'auto'\n\theightValue = '300px'\n\tappLinkName = 'thisapp'\n\tformLinkName = 'Invoice_Records'\n\txfield = 'total_charges'\n\tyfields = 'value:tax_amount'\n\tgroupBy = 'booking'\n\t\tDelugeCriteria = 'total_charges is not null'\n/>\n\n</column>\n</row><row>\n\t<column\n   \t\t width='100%'\n   \t>\n\t<report \n\telementName='Report'\n\n\t\tappLinkName = 'thisapp'\n\t\tlinkName = 'Booking_Approvals_Report'\n\t\n\t\tiszreport = 'false'\n\theightType = 'auto'\n\theightValue = '700'\n/>\n</column>\n</row>\n</layout>\n</zml>"
+		}
+	}
+
+
+
+
+		workflow
+		{
+		form
+		{
+			auto_calculate_total_amount as "Auto-calculate Total Amount"
+			{
+				type =  form
+				form = Room_Booking_Form
+
+				record event = on add
+
+				on load
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Fetch tariff and discount percentage values from input fields
+										tariffValue = input.tariff;
+										discountPercentage = input.discount_percentage;
+										// Initialize total payable variable
+										totalPayable = 0;
+										// Calculate discount amount if discount percentage is provided
+										if(!input.discount_percentage.isNull())
+										{
+											discountAmount = (tariffValue * discountPercentage) / 100;
+											totalPayable = tariffValue - discountAmount;
+										}
+										else
+										{
+											// If no discount, total payable equals tariff
+											totalPayable = tariffValue;
+										}
+										// Set the calculated total payable to the form field
+										input.total_amount_payable = totalPayable;
+						)
+					}
+				}
+
+			}
+			send_booking_confirmation_email as "Send Booking Confirmation Email"
+			{
+				type =  form
+				form = Room_Booking_Form
+
+				record event = on add
+
+				on success
+				{
+					actions 
+					{
+						custom deluge script
+						(
+											// Send confirmation email to guest upon successful booking creation
+										if(input.guest_email.isNull())
+										{
+											info "Guest email is missing, cannot send confirmation email";
+										}
+										else
+										{
+											sendmail
+											[
+												from :zoho.loginuserid
+												to :input.guest_email
+												subject :"Booking Confirmation - " + input.booking_id.toText()
+												message :"Dear " + input.guest_name.first_name + ",\n\nYour booking has been successfully created.\n\nBooking ID: " + input.booking_id.toText() + "\nGuest Name: " + input.guest_name.first_name + " " + input.guest_name.last_name + "\nCheck-in Date: " + input.check_in_date.toString() + "\nCheck-out Date: " + input.check_out_date.toString() + "\nRoom Type: " + input.room_type + "\n\nThank you for choosing us!\n\nBest regards,\nHotel Management Team"
+											]
+										}
+						)
+					}
+				}
+
+			}
+		}
+
+		schedule
+		{
+			pre_checkin_reminder as "Pre-Check-in Reminder"
+			{
+				type =  schedule
+				form = Room_Booking_Form
+					status = inactive
+				start = check_in_date at "10:00:00"
+				time zone = "Asia/Kolkata"
+				on start
+				{
+					actions 
+					{
+					on load
+					(
+						// Get the check-in date from the input record
+										checkInDate = input.check_in_date;
+										// Calculate the reminder date (one day before check-in)
+										reminderDate = checkInDate.addDay(-1);
+										// Get the current date
+										currentDate = zoho.currentdate;
+										// Check if today is the reminder date
+										if(currentDate == reminderDate)
+										{
+											// Get guest details
+											guestName = input.guest_name.first_name;
+											guestEmail = input.guest_email;
+											roomNumber = input.room_number;
+											roomType = input.room_type;
+											checkInDateFormatted = checkInDate.getDateTime();
+											// Prepare email message
+											emailSubject = "Reminder: Your Check-In is Tomorrow";
+											emailMessage = "Dear " + guestName + ",\n\n" + "This is a friendly reminder that your check-in is scheduled for tomorrow, " + checkInDateFormatted + ".\n\n" + "Your reservation details:\n" + "Room Number: " + roomNumber.toString() + "\n" + "Room Type: " + roomType + "\n\n" + "We look forward to welcoming you!\n\n" + "Best regards,\n" + "Hotel Management Team";
+											// Send the reminder email
+											sendmail
+											[
+												from :zoho.loginuserid
+												to :guestEmail
+												subject :emailSubject
+												message :emailMessage
+												content type :Plain Text
+											]
+										}
+					)
+					}
+				}
+			}
+		}
+
+
+		blueprint
+		{
+    			room_booking_approval_flow as "Room Booking Approval Flow"
+    			{
+        			type = Blueprint
+        			form = Room_Booking_Form
+        			start
+        			{
+            			start stage = "Booking Initiated"
+        			}
+        			stages
+        			{
+           			"Booking Initiated"
+           			{
+           			}
+           			"Pending Approval"
+           			{
+           			}
+           			"Booking Cancelled"
+           			{
+           			}
+           			"Approved"
+           			{
+           			}
+           			"Rejected"
+           			{
+           			}
+           			"Pending Payment"
+           			{
+           			}
+           			"Payment Confirmed"
+           			{
+           			}
+           			"Check-In Pending"
+           			{
+           			}
+           			"Guest Checked In"
+           			{
+           			}
+           			"Guest Checked Out"
+           			{
+           			}
+           			"Upgrade Requested"
+           			{
+           			}
+           			"Upgrade Approved"
+           			{
+           			}
+           			"Upgrade Rejected"
+           			{
+           			}
+           			"Final Settlement"
+           			{
+           			}
+           			"Booking Closed"
+           			{
+           			}
+        			}
+        			transitions
+        			{
+    				approve_booking as "Approve Booking"
+    				{
+         				type = normal
+         				from stage = "Pending Approval"
+         				to stage = "Approved"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				approve_upgrade as "Approve Upgrade"
+    				{
+         				type = normal
+         				from stage = "Upgrade Requested"
+         				to stage = "Upgrade Approved"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_approved_booking as "Cancel Approved Booking"
+    				{
+         				type = normal
+         				from stage = "Approved"
+         				to stage = "Booking Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_booking as "Cancel Booking"
+    				{
+         				type = normal
+         				from stage = "Booking Initiated"
+         				to stage = "Booking Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_confirmed_booking as "Cancel Confirmed Booking"
+    				{
+         				type = normal
+         				from stage = "Payment Confirmed"
+         				to stage = "Booking Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_non_payment as "Cancel Due to Non-Payment"
+    				{
+         				type = normal
+         				from stage = "Pending Payment"
+         				to stage = "Booking Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_noshow as "Cancel No-Show Booking"
+    				{
+         				type = normal
+         				from stage = "Check-In Pending"
+         				to stage = "Booking Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				cancel_post_stay as "Cancel Post-Stay Booking"
+    				{
+         				type = normal
+         				from stage = "Guest Checked Out"
+         				to stage = "Booking Cancelled"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				close_booking as "Close Booking"
+    				{
+         				type = normal
+         				from stage = "Final Settlement"
+         				to stage = "Booking Closed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				confirm_checkin_readiness as "Confirm Check-In Readiness"
+    				{
+         				type = normal
+         				from stage = "Payment Confirmed"
+         				to stage = "Check-In Pending"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				confirm_payment as "Confirm Payment"
+    				{
+         				type = normal
+         				from stage = "Pending Payment"
+         				to stage = "Payment Confirmed"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				initiate_final_settlement as "Initiate Final Settlement"
+    				{
+         				type = normal
+         				from stage = "Guest Checked Out"
+         				to stage = "Final Settlement"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				maintain_current_room as "Maintain Current Room"
+    				{
+         				type = normal
+         				from stage = "Upgrade Requested"
+         				to stage = "Guest Checked In"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				proceed_to_checkout as "Proceed to Check-Out"
+    				{
+         				type = normal
+         				from stage = "Upgrade Approved"
+         				to stage = "Guest Checked Out"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				process_upgrade_request as "Process Upgrade Request"
+    				{
+         				type = normal
+         				from stage = "Guest Checked In"
+         				to stage = "Upgrade Requested"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				record_checkin as "Record Check-In"
+    				{
+         				type = normal
+         				from stage = "Check-In Pending"
+         				to stage = "Guest Checked In"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				record_checkout as "Record Check-Out"
+    				{
+         				type = normal
+         				from stage = "Guest Checked In"
+         				to stage = "Guest Checked Out"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				reject_booking as "Reject Booking"
+    				{
+         				type = normal
+         				from stage = "Pending Approval"
+         				to stage = "Rejected"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				reject_upgrade as "Reject Upgrade"
+    				{
+         				type = normal
+         				from stage = "Upgrade Requested"
+         				to stage = "Upgrade Rejected"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				request_advance_payment as "Request Advance Payment"
+    				{
+         				type = normal
+         				from stage = "Pending Approval"
+         				to stage = "Pending Payment"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				request_outstanding_payment as "Request Outstanding Payment"
+    				{
+         				type = normal
+         				from stage = "Final Settlement"
+         				to stage = "Pending Payment"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				request_payment_revision as "Request Payment Revision"
+    				{
+         				type = normal
+         				from stage = "Pending Payment"
+         				to stage = "Pending Approval"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+    				submit_for_approval as "Submit for Approval"
+    				{
+         				type = normal
+         				from stage = "Booking Initiated"
+         				to stage = "Pending Approval"
+         				before
+         				{
+         				}
+         				after
+         				{
+         				}
+  				}
+        			}
+    			}
+		}
+
+
+	}
+	share_settings
+	{
+			"Read"
+			{
+				name = "Read"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have read permission for all components\n"
+			}
+			"Write"
+			{
+				name = "Write"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have write permission for all components\n"
+			}
+			"Front Desk Agent"
+			{
+				name = "Front Desk Agent"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Create new room bookings and update guest details upon arrival \n"
+				ModulePermissions
+				{
+					Workflow_Logs
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Workflow_Logs_by_trigger_type={"View"}
+							Workflow_Logs_Report={"View"}
+						}
+					}
+					Room_Booking_Form
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Room_Booking_Form_Report={"View","Edit","Delete"}
+							Room_Booking_Form_by_room_type={"View","Edit","Delete"}
+						}
+					}
+					Feedback_Surveys
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Feedback_Surveys_by_response_status={"View"}
+							Feedback_Surveys_Report={"View"}
+						}
+					}
+					Booking_Approvals
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Booking_Approvals_by_approval_status={"View"}
+							Booking_Approvals_Report={"View"}
+						}
+					}
+					Invoice_Records
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Invoice_Records_Report={"View"}
+							Invoice_Records_by_generation_method={"View"}
+						}
+					}
+					Payment_Transactions
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Payment_Transactions_by_gateway_status={"View"}
+							Payment_Transactions_Report={"View"}
+						}
+					}
+				}
+			}
+			"Administrator"
+			{
+				name = "Administrator"
+				type = Users_Permissions
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This profile will have all the permissions.\n"
+			}
+			"Booking Approver"
+			{
+				name = "Booking Approver"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Review and approve or reject requests for complimentary upgrades and special discounts \n"
+				ModulePermissions
+				{
+					Workflow_Logs
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Workflow_Logs_by_trigger_type={"View"}
+							Workflow_Logs_Report={"View"}
+						}
+					}
+					Room_Booking_Form
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Room_Booking_Form_Report={"View"}
+							Room_Booking_Form_by_room_type={"View"}
+						}
+					}
+					Feedback_Surveys
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Feedback_Surveys_by_response_status={"View"}
+							Feedback_Surveys_Report={"View"}
+						}
+					}
+					Booking_Approvals
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Booking_Approvals_by_approval_status={"View","Edit","Delete"}
+							Booking_Approvals_Report={"View","Edit","Delete"}
+						}
+					}
+					Invoice_Records
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Invoice_Records_Report={"View"}
+							Invoice_Records_by_generation_method={"View"}
+						}
+					}
+					Payment_Transactions
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Payment_Transactions_by_gateway_status={"View"}
+							Payment_Transactions_Report={"View"}
+						}
+					}
+				}
+			}
+			"Developer"
+			{
+				name = "Developer"
+				type = Developer
+				permissions = {Chat:false, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Developer Profile\n"
+			}
+			"Finance Officer"
+			{
+				name = "Finance Officer"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Monitor payment transaction statuses and handle failed or timed-out payments \n"
+				ModulePermissions
+				{
+					Workflow_Logs
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Workflow_Logs_by_trigger_type={"View"}
+							Workflow_Logs_Report={"View"}
+						}
+					}
+					Room_Booking_Form
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Room_Booking_Form_Report={"View"}
+							Room_Booking_Form_by_room_type={"View"}
+						}
+					}
+					Feedback_Surveys
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Feedback_Surveys_by_response_status={"View"}
+							Feedback_Surveys_Report={"View"}
+						}
+					}
+					Booking_Approvals
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Booking_Approvals_by_approval_status={"View"}
+							Booking_Approvals_Report={"View"}
+						}
+					}
+					Invoice_Records
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Invoice_Records_Report={"View","Edit","Delete"}
+							Invoice_Records_by_generation_method={"View","Edit","Delete"}
+						}
+					}
+					Payment_Transactions
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Payment_Transactions_by_gateway_status={"View","Edit","Delete"}
+							Payment_Transactions_Report={"View","Edit","Delete"}
+						}
+					}
+				}
+			}
+			"System Administrator"
+			{
+				name = "System Administrator"
+				type = Users_Permissions
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Monitor workflow logs to ensure automated processes like reminders and audits run successfully \n"
+				ModulePermissions
+				{
+					Workflow_Logs
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Workflow_Logs_by_trigger_type={"View","Edit","Delete"}
+							Workflow_Logs_Report={"View","Edit","Delete"}
+						}
+					}
+					Room_Booking_Form
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Room_Booking_Form_Report={"View","Edit","Delete"}
+							Room_Booking_Form_by_room_type={"View","Edit","Delete"}
+						}
+					}
+					Feedback_Surveys
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Feedback_Surveys_by_response_status={"View","Edit","Delete"}
+							Feedback_Surveys_Report={"View","Edit","Delete"}
+						}
+					}
+					Booking_Approvals
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Booking_Approvals_by_approval_status={"View","Edit","Delete"}
+							Booking_Approvals_Report={"View","Edit","Delete"}
+						}
+					}
+					Invoice_Records
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Invoice_Records_Report={"View","Edit","Delete"}
+							Invoice_Records_by_generation_method={"View","Edit","Delete"}
+						}
+					}
+					Payment_Transactions
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Payment_Transactions_by_gateway_status={"View","Edit","Delete"}
+							Payment_Transactions_Report={"View","Edit","Delete"}
+						}
+					}
+				}
+			}
+			"Customer"
+			{
+				name = "Customer"
+				type = Customer_Portal
+				permissions = {Chat:true, Predefined:true, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "This is the default profile having only add and view permission.\n"
+			}
+			"Corporate Travel Manager"
+			{
+				name = "Corporate Travel Manager"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Request special discounts for group bookings on behalf of employees \n"
+				ModulePermissions
+				{
+					Workflow_Logs
+					{
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Workflow_Logs_by_trigger_type={"View"}
+							Workflow_Logs_Report={"View"}
+						}
+					}
+					Room_Booking_Form
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Room_Booking_Form_Report={"View"}
+							Room_Booking_Form_by_room_type={"View"}
+						}
+					}
+					Feedback_Surveys
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Feedback_Surveys_by_response_status={"View"}
+							Feedback_Surveys_Report={"View"}
+						}
+					}
+					Booking_Approvals
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Booking_Approvals_by_approval_status={"View"}
+							Booking_Approvals_Report={"View"}
+						}
+					}
+					Invoice_Records
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Invoice_Records_Report={"View","Edit","Delete"}
+							Invoice_Records_by_generation_method={"View","Edit","Delete"}
+						}
+					}
+					Payment_Transactions
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Payment_Transactions_by_gateway_status={"View"}
+							Payment_Transactions_Report={"View"}
+						}
+					}
+				}
+			}
+			"Guest"
+			{
+				name = "Guest"
+				type = Customer_Portal
+				permissions = {Chat:false, Predefined:false, ApiAccess:true, PIIAccess:true, ePHIAccess:true}
+				description = "Submit room booking requests with specific dates and room type preferences \n"
+				ModulePermissions
+				{
+					Feedback_Surveys
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Feedback_Surveys_by_response_status={"View","Edit","Delete"}
+							Feedback_Surveys_Report={"View","Edit","Delete"}
+						}
+					}
+					Room_Booking_Form
+					{
+						enabled= Create,Viewall,Modifyall,Import,Export,Tab 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Room_Booking_Form_Report={"View","Edit","Delete"}
+							Room_Booking_Form_by_room_type={"View","Edit","Delete"}
+						}
+					}
+					Invoice_Records
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Invoice_Records_Report={"View"}
+							Invoice_Records_by_generation_method={"View"}
+						}
+					}
+					Payment_Transactions
+					{
+						enabled= Viewall 
+						allFieldsVisible= true 
+						ReportPermissions
+						{
+							Payment_Transactions_by_gateway_status={"View"}
+							Payment_Transactions_Report={"View"}
+						}
+					}
+				}
+			}
+			roles
+			{
+				"CEO"
+				{
+					description = "User belonging to this role can access data of all other users."
+				}
+			}
+	}
+
+
+	web
+	{
+		forms
+		{
+			form Booking_Approvals
+			{
+				label placement = left
+			}
+			form Feedback_Surveys
+			{
+				label placement = left
+			}
+			form Invoice_Records
+			{
+				label placement = left
+			}
+			form Payment_Transactions
+			{
+				label placement = left
+			}
+			form Room_Booking_Form
+			{
+				label placement = left
+			}
+			form Workflow_Logs
+			{
+				label placement = left
+			}
+		}
+		reports
+		{
+			report Booking_Approvals_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								approval_type as "Approval Type"
+								requested_by as "Requested By"
+								request_date as "Request Date"
+								approval_status as "Approval Status"
+								approved_by as "Approved By"
+								approval_date as "Approval Date"
+								approval_comments as "Approval Comments"
+								fallback_approver as "Fallback Approver"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								booking as "Booking"
+								approval_type as "Approval Type"
+								requested_by as "Requested By"
+								request_date as "Request Date"
+								approval_status as "Approval Status"
+								approved_by as "Approved By"
+								approval_date as "Approval Date"
+								approval_comments as "Approval Comments"
+								fallback_approver as "Fallback Approver"
+							)
+						)
+						datablock2
+						(
+		     				title = "Booking"
+		     				related field = booking
+							fields
+							(
+								booking_id as "Booking ID"
+								guest_name as "Guest Name"
+								guest_email as "Guest Email"
+								guest_phone as "Guest Phone"
+								check_in_date as "Check In Date"
+								check_out_date as "Check Out Date"
+								room_type as "Room Type"
+								room_number as "Room Number"
+								tariff as "Room Tariff"
+								discount_percentage as "Discount Percentage"
+								total_amount_payable as "Total Amount Payable"
+								advance_payment_status as "Advance Payment Status"
+								transaction_reference as "Transaction Reference"
+								upgrade_requested as "Upgrade Requested"
+								special_discount_requested as "Special Discount Requested"
+								status as "Status"
+								check_in_comment as "Check In Comment"
+								check_out_comment as "Check Out Comment"
+								created_by as "Created By"
+								created_time as "Created Time"
+								updated_by as "Updated By"
+								updated_time as "Updated Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Booking_Approvals_by_approval_status
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								requested_by as "Requested By"
+								approved_by as "Approved By"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								approval_type as "Approval Type"
+								requested_by as "Requested By"
+								request_date as "Request Date"
+								approval_status as "Approval Status"
+								approved_by as "Approved By"
+								approval_date as "Approval Date"
+								approval_comments as "Approval Comments"
+								fallback_approver as "Fallback Approver"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Feedback_Surveys_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								survey_link as "Survey Link"
+								sent_date as "Sent Date"
+								response_status as "Response Status"
+								feedback_score as "Feedback Score"
+								feedback_comments as "Feedback Comments"
+								batch_id as "Batch ID"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								booking as "Booking"
+								survey_link as "Survey Link"
+								sent_date as "Sent Date"
+								response_status as "Response Status"
+								feedback_score as "Feedback Score"
+								feedback_comments as "Feedback Comments"
+								batch_id as "Batch ID"
+							)
+						)
+						datablock2
+						(
+		     				title = "Booking"
+		     				related field = booking
+							fields
+							(
+								booking_id as "Booking ID"
+								guest_name as "Guest Name"
+								guest_email as "Guest Email"
+								guest_phone as "Guest Phone"
+								check_in_date as "Check In Date"
+								check_out_date as "Check Out Date"
+								room_type as "Room Type"
+								room_number as "Room Number"
+								tariff as "Room Tariff"
+								discount_percentage as "Discount Percentage"
+								total_amount_payable as "Total Amount Payable"
+								advance_payment_status as "Advance Payment Status"
+								transaction_reference as "Transaction Reference"
+								upgrade_requested as "Upgrade Requested"
+								special_discount_requested as "Special Discount Requested"
+								status as "Status"
+								check_in_comment as "Check In Comment"
+								check_out_comment as "Check Out Comment"
+								created_by as "Created By"
+								created_time as "Created Time"
+								updated_by as "Updated By"
+								updated_time as "Updated Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Feedback_Surveys_by_response_status
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								batch_id as "Batch ID"
+								booking as "Booking"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								survey_link as "Survey Link"
+								sent_date as "Sent Date"
+								response_status as "Response Status"
+								feedback_score as "Feedback Score"
+								feedback_comments as "Feedback Comments"
+								batch_id as "Batch ID"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Payment_Transactions_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								payment_link as "Payment Link"
+								amount as "Amount"
+								gateway_status as "Gateway Status"
+								transaction_reference as "Transaction Reference"
+								retry_count as "Retry Count"
+								payment_date as "Payment Date"
+								error_log as "Error Log"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								booking as "Booking"
+								payment_link as "Payment Link"
+								amount as "Amount"
+								gateway_status as "Gateway Status"
+								transaction_reference as "Transaction Reference"
+								retry_count as "Retry Count"
+								payment_date as "Payment Date"
+								error_log as "Error Log"
+							)
+						)
+						datablock2
+						(
+		     				title = "Booking"
+		     				related field = booking
+							fields
+							(
+								booking_id as "Booking ID"
+								guest_name as "Guest Name"
+								guest_email as "Guest Email"
+								guest_phone as "Guest Phone"
+								check_in_date as "Check In Date"
+								check_out_date as "Check Out Date"
+								room_type as "Room Type"
+								room_number as "Room Number"
+								tariff as "Room Tariff"
+								discount_percentage as "Discount Percentage"
+								total_amount_payable as "Total Amount Payable"
+								advance_payment_status as "Advance Payment Status"
+								transaction_reference as "Transaction Reference"
+								upgrade_requested as "Upgrade Requested"
+								special_discount_requested as "Special Discount Requested"
+								status as "Status"
+								check_in_comment as "Check In Comment"
+								check_out_comment as "Check Out Comment"
+								created_by as "Created By"
+								created_time as "Created Time"
+								updated_by as "Updated By"
+								updated_time as "Updated Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Payment_Transactions_by_gateway_status
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								transaction_reference as "Transaction Reference"
+								booking as "Booking"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								payment_link as "Payment Link"
+								amount as "Amount"
+								gateway_status as "Gateway Status"
+								transaction_reference as "Transaction Reference"
+								retry_count as "Retry Count"
+								payment_date as "Payment Date"
+								error_log as "Error Log"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Room_Booking_Form_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking_id as "Booking ID"
+								guest_name as "Guest Name"
+								guest_email as "Guest Email"
+								guest_phone as "Guest Phone"
+								check_in_date as "Check In Date"
+								check_out_date as "Check Out Date"
+								room_type as "Room Type"
+								room_number as "Room Number"
+								tariff as "Room Tariff"
+								discount_percentage as "Discount Percentage"
+								total_amount_payable as "Total Amount Payable"
+								advance_payment_status as "Advance Payment Status"
+								transaction_reference as "Transaction Reference"
+								upgrade_requested as "Upgrade Requested"
+								special_discount_requested as "Special Discount Requested"
+								status as "Status"
+								check_in_comment as "Check In Comment"
+								check_out_comment as "Check Out Comment"
+								created_by as "Created By"
+								created_time as "Created Time"
+								updated_by as "Updated By"
+								updated_time as "Updated Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								booking_id as "Booking ID"
+								guest_name as "Guest Name"
+								guest_email as "Guest Email"
+								guest_phone as "Guest Phone"
+								check_in_date as "Check In Date"
+								check_out_date as "Check Out Date"
+								room_type as "Room Type"
+								room_number as "Room Number"
+								tariff as "Room Tariff"
+								discount_percentage as "Discount Percentage"
+								total_amount_payable as "Total Amount Payable"
+								advance_payment_status as "Advance Payment Status"
+								transaction_reference as "Transaction Reference"
+								upgrade_requested as "Upgrade Requested"
+								special_discount_requested as "Special Discount Requested"
+								status as "Status"
+								check_in_comment as "Check In Comment"
+								check_out_comment as "Check Out Comment"
+								created_by as "Created By"
+								created_time as "Created Time"
+								updated_by as "Updated By"
+								updated_time as "Updated Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Room_Booking_Form_by_room_type
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								guest_name as "Guest Name"
+								transaction_reference as "Transaction Reference"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking_id as "Booking ID"
+								guest_name as "Guest Name"
+								guest_email as "Guest Email"
+								guest_phone as "Guest Phone"
+								check_in_date as "Check In Date"
+								check_out_date as "Check Out Date"
+								room_type as "Room Type"
+								room_number as "Room Number"
+								tariff as "Room Tariff"
+								discount_percentage as "Discount Percentage"
+								total_amount_payable as "Total Amount Payable"
+								advance_payment_status as "Advance Payment Status"
+								transaction_reference as "Transaction Reference"
+								upgrade_requested as "Upgrade Requested"
+								special_discount_requested as "Special Discount Requested"
+								status as "Status"
+								check_in_comment as "Check In Comment"
+								check_out_comment as "Check Out Comment"
+								created_by as "Created By"
+								created_time as "Created Time"
+								updated_by as "Updated By"
+								updated_time as "Updated Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Invoice_Records_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								invoice_pdf_url as "Invoice PDF URL"
+								generated_date as "Generated Date"
+								generation_method as "Generation Method"
+								total_charges as "Total Charges"
+								tax_amount as "Tax Amount"
+								addons_total as "Addons Total"
+								final_payable as "Final Payable"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								booking as "Booking"
+								invoice_pdf_url as "Invoice PDF URL"
+								generated_date as "Generated Date"
+								generation_method as "Generation Method"
+								total_charges as "Total Charges"
+								tax_amount as "Tax Amount"
+								addons_total as "Addons Total"
+								final_payable as "Final Payable"
+							)
+						)
+						datablock2
+						(
+		     				title = "Booking"
+		     				related field = booking
+							fields
+							(
+								booking_id as "Booking ID"
+								guest_name as "Guest Name"
+								guest_email as "Guest Email"
+								guest_phone as "Guest Phone"
+								check_in_date as "Check In Date"
+								check_out_date as "Check Out Date"
+								room_type as "Room Type"
+								room_number as "Room Number"
+								tariff as "Room Tariff"
+								discount_percentage as "Discount Percentage"
+								total_amount_payable as "Total Amount Payable"
+								advance_payment_status as "Advance Payment Status"
+								transaction_reference as "Transaction Reference"
+								upgrade_requested as "Upgrade Requested"
+								special_discount_requested as "Special Discount Requested"
+								status as "Status"
+								check_in_comment as "Check In Comment"
+								check_out_comment as "Check Out Comment"
+								created_by as "Created By"
+								created_time as "Created Time"
+								updated_by as "Updated By"
+								updated_time as "Updated Time"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Invoice_Records_by_generation_method
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								booking as "Booking"
+								invoice_pdf_url as "Invoice PDF URL"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								booking as "Booking"
+								invoice_pdf_url as "Invoice PDF URL"
+								generated_date as "Generated Date"
+								generation_method as "Generation Method"
+								total_charges as "Total Charges"
+								tax_amount as "Tax Amount"
+								addons_total as "Addons Total"
+								final_payable as "Final Payable"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Workflow_Logs_Report
+			{
+				quickview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								workflow_name as "Workflow Name"
+								record_id as "Record ID"
+								execution_time as "Execution Time"
+								status as "Status"
+								error_message as "Error Message"
+								trigger_type as "Trigger Type"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+		     				title = "Overview"
+							fields
+							(
+								workflow_name as "Workflow Name"
+								record_id as "Record ID"
+								execution_time as "Execution Time"
+								status as "Status"
+								error_message as "Error Message"
+								trigger_type as "Trigger Type"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+			report Workflow_Logs_by_trigger_type
+			{
+				quickview
+				(
+					layout
+					(
+		 				type = 1
+						datablock1
+						(
+							layout type = 1
+							fields
+							(
+								workflow_name as "Workflow Name"
+								record_id as "Record ID"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+								Add 
+								Import 
+								Export 
+							)
+						record
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+    					)
+						)
+    				action
+    				(
+						on click
+						(
+							View Record   	   
+    					)
+						on right click
+						(
+							Edit   	   
+							Duplicate   	   
+							Delete   	   
+							Print   	   
+							View Record   	   
+    					)
+     				)
+				)
+
+				detailview
+				(
+					layout
+					(
+						datablock1
+						(
+							fields
+							(
+								workflow_name as "Workflow Name"
+								record_id as "Record ID"
+								execution_time as "Execution Time"
+								status as "Status"
+								error_message as "Error Message"
+								trigger_type as "Trigger Type"
+							)
+						)
+					)
+						menu
+						(
+							header
+							(
+								Edit 
+								Duplicate 
+								Delete 
+								Print 
+							)
+						)
+				)
+			}
+		}
+		menu
+		{
+			space Space
+			{
+				displayname = "Space"
+				icon = "objects-spaceship"
+
+				section Section_1
+				{
+					displayname = "Dashboard"
+					icon = "ui-1-dashboard-half"
+					page DashBoard
+					{
+						icon = "ui-1-dashboard-half"
+					}
+				}
+				section Section_2
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					form  Booking_Approvals
+					{
+						icon = "ui-1-bold-add"
+					}
+					report Booking_Approvals_Report
+					{
+						icon = "travel-world"
+					}
+					report Booking_Approvals_by_approval_status
+					{
+						icon = "design-window-paragraph"
+					}
+				}
+				section Section_3
+				{
+					displayname = "Feedback Surveys"
+					icon = "ui-1-database"
+					form  Feedback_Surveys
+					{
+						icon = "ui-1-bold-add"
+					}
+					report Feedback_Surveys_Report
+					{
+						icon = "travel-world"
+					}
+					report Feedback_Surveys_by_response_status
+					{
+						icon = "travel-lighthouse"
+					}
+				}
+				section Section_4
+				{
+					displayname = "Payment Transactions"
+					icon = "shopping-receipt"
+					form  Payment_Transactions
+					{
+						icon = "ui-1-bold-add"
+					}
+					report Payment_Transactions_Report
+					{
+						icon = "shopping-receipt"
+					}
+					report Payment_Transactions_by_gateway_status
+					{
+						icon = "travel-berlin"
+					}
+				}
+				section Section_5
+				{
+					displayname = "Room Booking Form"
+					icon = "furniture-table"
+					form  Room_Booking_Form
+					{
+						icon = "ui-1-bold-add"
+					}
+					report Room_Booking_Form_Report
+					{
+						icon = "business-laptop-71"
+					}
+					report Room_Booking_Form_by_room_type
+					{
+						icon = "furniture-table"
+					}
+				}
+				section Section_6
+				{
+					displayname = "Invoice Records"
+					icon = "shopping-receipt-list-42"
+					form  Invoice_Records
+					{
+						icon = "ui-1-bold-add"
+					}
+					report Invoice_Records_Report
+					{
+						icon = "shopping-pos"
+					}
+					report Invoice_Records_by_generation_method
+					{
+						icon = "design-contrast"
+					}
+				}
+				section Section_7
+				{
+					displayname = "Workflow Logs"
+					icon = "food-recipe-book-47"
+					form  Workflow_Logs
+					{
+						icon = "ui-1-bold-add"
+					}
+					report Workflow_Logs_Report
+					{
+						icon = "ui-1-database"
+					}
+					report Workflow_Logs_by_trigger_type
+					{
+						icon = "tech-2-keyboard-wireless"
+					}
+				}
+				section ZC_App_Preferences
+				{
+					displayname = "App Preferences"
+					icon = "design-app"
+					systemcomponent
+					{
+						type = localization
+						displayname = "Language Selection"
+						icon = "education-language"
+					}
+					systemcomponent
+					{
+						type = connection
+						displayname = "Integrations"
+						icon = "tech-2-connection"
+					}
+				}
+				section ZC_Approvals
+				{
+					displayname = "Approvals"
+					icon = "ui-2-hourglass"
+					systemcomponent
+					{
+						type = approval
+						approval status = pending
+						displayname = "Pending Tasks"
+						icon = "ui-2-hourglass"
+					}
+					systemcomponent
+					{
+						type = approval
+						approval status = completed
+						displayname = "Completed Tasks"
+						icon = "design-todo"
+					}
+				}
+				section SharedAnalytics_Section
+				{
+					type = shared_user_report_section
+					displayname = "Reports"
+					icon = "business-chart-bar-33"
+				}
+			}
+			preference
+			{
+				icon
+				{
+					style = solid
+					show = {space,section,component}
+				}
+			}
+		}
+		customize
+		{
+			new theme = 11
+			font = "poppins"
+			color options
+			{
+				color = "3"
+			}
+			logo
+			{
+				preference = "none"
+				placement = "left"
+			}
+		}
+	}
+	phone
+	{
+		customize
+		{
+			layout = twocolumn
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = chryslerpurple
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	tablet
+	{
+		customize
+		{
+			layout = slidingpane
+			font = "default"
+			style = "3"
+			color options
+			{
+				color = yellow
+			}
+			logo
+			{
+				preference = "none"
+			}
+		}
+	}
+	translation
+{
+{"Language_Settings":{"LANGAGUE_WITH_LOGIN":"browser"}}
+}
+}
